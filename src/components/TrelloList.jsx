@@ -14,7 +14,7 @@ const TrelloList = ({ title, listId, cards, openCardForm }) => {
           />
         );
       })}
-      <CardButton listId={listId} />
+      <CardButton listId={listId} openCardForm={openCardForm} />
     </div>
   );
 };
