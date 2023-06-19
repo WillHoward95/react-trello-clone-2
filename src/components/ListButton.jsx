@@ -20,7 +20,7 @@ const ListButton = () => {
           dispatch(setFormList());
         }}
       >
-        + Add a new list
+        + Add list
       </button>
     </div>
   );

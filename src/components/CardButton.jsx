@@ -8,8 +8,6 @@ const CardButton = ({ listId }) => {
   const formCard = useSelector(selectFormCard);
   const dispatch = useDispatch();
 
-  console.log(formCard[listId]);
-
   if (formCard[listId]) {
     return <h4>test</h4>;
   }
@@ -22,7 +20,7 @@ const CardButton = ({ listId }) => {
           dispatch(setFormCard(listId));
         }}
       >
-        + Add a new card
+        + Add card
       </button>
     </div>
   );
