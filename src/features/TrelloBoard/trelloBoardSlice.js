@@ -72,6 +72,15 @@ export const trelloBoardSlice = createSlice({
           ...card
         );
       }
+
+      //different list
+      if (droppableIdStart !== droppableIdEnd) {
+        const card = state.board[droppableIdStart].cards.splice(
+          droppableIndexStart,
+          1
+        );
+        state.board[droppableIdEnd].cards.splice(droppableIndexEnd, 0, ...card);
+      }
     },
   },
 });
