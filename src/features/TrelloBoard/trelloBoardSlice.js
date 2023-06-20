@@ -24,6 +24,7 @@ export const trelloBoardSlice = createSlice({
           cardId: cardId,
         });
         cardId += 1;
+        state.openFormCard.push(false);
       }
     },
     setNewCardInput: (state, action) => {
@@ -50,6 +51,27 @@ export const trelloBoardSlice = createSlice({
         droppableIndexStart,
         draggableId,
       } = action.payload;
+
+      console.log(
+        droppableIdStart,
+        droppableIdEnd
+        // droppableIndexEnd,
+        // droppableIndexStart,
+        // draggableId
+      );
+
+      //same list
+      if (droppableIdStart === droppableIdEnd) {
+        const card = state.board[droppableIdStart].cards.splice(
+          droppableIndexStart,
+          1
+        );
+        state.board[droppableIdStart].cards.splice(
+          droppableIndexEnd,
+          0,
+          ...card
+        );
+      }
     },
   },
 });
@@ -61,6 +83,7 @@ export const {
   setNewCardInput,
   setNewListText,
   setListTitleInput,
+  sort,
 } = trelloBoardSlice.actions;
 
 export const selectLists = (state) => state.trelloBoard.board;
