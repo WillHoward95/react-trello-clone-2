@@ -1,11 +1,12 @@
 import {
   setFormList,
   selectFormList,
-  setNewList,
+  setNewListText,
   setListTitleInput,
   selectListTitleInput,
 } from "../features/TrelloBoard/trelloBoardSlice";
 import { useDispatch, useSelector } from "react-redux";
+import Textarea from "react-textarea-autosize";
 
 const ListButton = () => {
   const formCard = useSelector(selectFormList);
@@ -15,7 +16,8 @@ const ListButton = () => {
   if (formCard) {
     return (
       <div className="button listButton">
-        <textarea
+        <Textarea
+          className="textArea"
           placeholder="Enter a title for this card..."
           autoFocus
           onBlur={() => {
@@ -27,7 +29,7 @@ const ListButton = () => {
         />
         <button
           onMouseDown={() => {
-            dispatch(setNewList(listTitleInput));
+            dispatch(setNewListText(listTitleInput));
           }}
         >
           Save Card

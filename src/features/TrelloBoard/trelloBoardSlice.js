@@ -10,28 +10,34 @@ export const trelloBoardSlice = createSlice({
   reducers: {
     setFormCard: (state, action) => {
       state.openFormCard[action.payload] = !state.openFormCard[action.payload];
+      state.newCardText = "";
     },
     setFormList: (state) => {
       state.openFormList = !state.openFormList;
     },
     setNewCardText: (state, action) => {
-      state.board[action.payload.listId].cards.push({
-        text: action.payload.text,
-        key: cardId,
-        cardId: cardId,
-      });
-      cardId += 1;
+      if (action.payload.text) {
+        console.log(action.payload);
+        state.board[action.payload.listId].cards.push({
+          text: action.payload.text,
+          key: cardId,
+          cardId: cardId,
+        });
+        cardId += 1;
+      }
     },
     setNewCardInput: (state, action) => {
       state.newCardText = action.payload;
     },
-    setNewList: (state, action) => {
-      state.board.push({
-        title: action.payload,
-        cards: [],
-        listId: listId,
-      });
-      listId += 1;
+    setNewListText: (state, action) => {
+      if (action.payload) {
+        state.board.push({
+          title: action.payload,
+          cards: [],
+          listId: listId,
+        });
+        listId += 1;
+      }
     },
     setListTitleInput: (state, action) => {
       state.listTitleInput = action.payload;
@@ -44,7 +50,7 @@ export const {
   setFormList,
   setNewCardText,
   setNewCardInput,
-  setNewList,
+  setNewListText,
   setListTitleInput,
 } = trelloBoardSlice.actions;
 

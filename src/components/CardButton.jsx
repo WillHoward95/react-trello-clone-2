@@ -6,6 +6,7 @@ import {
   setNewCardText,
 } from "../features/TrelloBoard/trelloBoardSlice";
 import { useDispatch, useSelector } from "react-redux";
+import Textarea from "react-textarea-autosize";
 
 const CardButton = ({ listId }) => {
   const formCard = useSelector(selectFormCard);
@@ -15,7 +16,8 @@ const CardButton = ({ listId }) => {
   if (formCard[listId]) {
     return (
       <div className="button cardButton">
-        <textarea
+        <Textarea
+          className="textArea"
           placeholder="Enter a text for this card..."
           autoFocus
           onBlur={() => {

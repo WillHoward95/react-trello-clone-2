@@ -30,3 +30,11 @@
 .listButton {
   margin: 10px 0px 0px 10px;
 }
+
+.textArea {
+  resize: none;
+  width: 100%;
+  overflow: hidden;
+  outline: none;
+  border: none;
+}
