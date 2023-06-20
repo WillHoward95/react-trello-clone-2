@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { initialState } from "../../initialState";
 
-let listId = 2;
-let cardId = 6;
+let counter = 8;
+// let cardIdCounter = 100;
 
 export const trelloBoardSlice = createSlice({
   name: "trelloBoard",
@@ -18,12 +18,17 @@ export const trelloBoardSlice = createSlice({
     setNewCardText: (state, action) => {
       if (action.payload.text) {
         console.log(action.payload);
-        state.board[action.payload.listId].cards.push({
-          text: action.payload.text,
-          key: cardId,
-          cardId: cardId,
+        const list = state.board.find((element) => {
+          return action.payload.listId == element.listId;
         });
-        cardId += 1;
+
+        list.cards.push({
+          text: action.payload.text,
+          key: counter,
+          cardId: counter,
+        });
+
+        counter += 1;
         state.openFormCard.push(false);
       }
     },
@@ -35,9 +40,9 @@ export const trelloBoardSlice = createSlice({
         state.board.push({
           title: action.payload,
           cards: [],
-          listId: listId,
+          listId: counter,
         });
-        listId += 1;
+        counter += 1;
       }
     },
     setListTitleInput: (state, action) => {
@@ -60,25 +65,27 @@ export const trelloBoardSlice = createSlice({
       }
 
       // moving cards between the same list
-      if (droppableIdStart === droppableIdEnd) {
-        const card = state.board[droppableIdStart].cards.splice(
-          droppableIndexStart,
-          1
-        );
-        state.board[droppableIdStart].cards.splice(
-          droppableIndexEnd,
-          0,
-          ...card
-        );
+      if (droppableIdStart === droppableIdEnd && type !== "list") {
+        const list = state.board.find((element) => {
+          return droppableIdStart == element.listId;
+        });
+
+        const card = list.cards.splice(droppableIndexStart, 1);
+        list.cards.splice(droppableIndexEnd, 0, ...card);
       }
 
       //moving cards between different list
-      if (droppableIdStart !== droppableIdEnd) {
-        const card = state.board[droppableIdStart].cards.splice(
-          droppableIndexStart,
-          1
+      if (droppableIdStart !== droppableIdEnd && type !== "list") {
+        const listStart = state.board.find(
+          (list) => droppableIdStart == list.listId
         );
-        state.board[droppableIdEnd].cards.splice(droppableIndexEnd, 0, ...card);
+        const card = listStart.cards.splice(droppableIndexStart, 1);
+
+        const listEnd = state.board.find(
+          (list) => droppableIdEnd == list.listId
+        );
+
+        listEnd.cards.splice(droppableIndexEnd, 0, ...card);
       }
     },
   },

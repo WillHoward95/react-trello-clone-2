@@ -10,13 +10,16 @@ const TrelloList = ({ title, listId, cards, openCardForm, index }) => {
           <div
             {...provided.draggableProps}
             ref={provided.innerRef}
-            className="list"
             {...provided.dragHandleProps}
           >
             <Droppable droppableId={String(listId)}>
               {(provided) => {
                 return (
-                  <div {...provided.droppableProps} ref={provided.innerRef}>
+                  <div
+                    {...provided.droppableProps}
+                    ref={provided.innerRef}
+                    className="list"
+                  >
                     <h4>{title}</h4>
                     {cards.map((cardItem, index) => {
                       return (

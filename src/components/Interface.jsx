@@ -15,6 +15,8 @@ const Interface = ({ trelloLists }) => {
       return;
     }
 
+    console.log(destination, source, draggableId, type);
+
     dispatch(
       sort({
         droppableIdStart: source.droppableId,

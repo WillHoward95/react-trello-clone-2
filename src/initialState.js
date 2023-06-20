@@ -7,11 +7,11 @@ export const initialState = {
       listId: 0,
       cards: [
         {
-          cardId: 0,
+          cardId: 2,
           text: "Shopping",
         },
         {
-          cardId: 1,
+          cardId: 3,
           text: "Laundry",
         },
       ],
@@ -21,19 +21,19 @@ export const initialState = {
       listId: 1,
       cards: [
         {
-          cardId: 2,
+          cardId: 4,
           text: "Shopping",
         },
         {
-          cardId: 3,
-          text: "Laundry",
-        },
-        {
-          cardId: 4,
-          text: "Laundry",
-        },
-        {
           cardId: 5,
+          text: "Laundry",
+        },
+        {
+          cardId: 6,
+          text: "Laundry",
+        },
+        {
+          cardId: 7,
           text: "Laundry",
         },
       ],
