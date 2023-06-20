@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { initialState } from "../../initialState";
 
 let listId = 2;
-let cardId = 100;
+let cardId = 6;
 
 export const trelloBoardSlice = createSlice({
   name: "trelloBoard",
@@ -41,6 +41,15 @@ export const trelloBoardSlice = createSlice({
     },
     setListTitleInput: (state, action) => {
       state.listTitleInput = action.payload;
+    },
+    sort: (state, action) => {
+      const {
+        droppableIdStart,
+        droppableIdEnd,
+        droppableIndexEnd,
+        droppableIndexStart,
+        draggableId,
+      } = action.payload;
     },
   },
 });
