@@ -50,17 +50,16 @@ export const trelloBoardSlice = createSlice({
         droppableIndexEnd,
         droppableIndexStart,
         draggableId,
+        type,
       } = action.payload;
 
-      console.log(
-        droppableIdStart,
-        droppableIdEnd
-        // droppableIndexEnd,
-        // droppableIndexStart,
-        // draggableId
-      );
+      //drag and drop lists
+      if (type === "list") {
+        const list = state.board.splice(droppableIndexStart, 1);
+        state.board.splice(droppableIndexEnd, 0, ...list);
+      }
 
-      //same list
+      // moving cards between the same list
       if (droppableIdStart === droppableIdEnd) {
         const card = state.board[droppableIdStart].cards.splice(
           droppableIndexStart,
@@ -73,7 +72,7 @@ export const trelloBoardSlice = createSlice({
         );
       }
 
-      //different list
+      //moving cards between different list
       if (droppableIdStart !== droppableIdEnd) {
         const card = state.board[droppableIdStart].cards.splice(
           droppableIndexStart,

@@ -1,6 +1,6 @@
 import TrelloList from "./TrelloList";
 import ListButton from "./ListButton";
-import { DragDropContext } from "react-beautiful-dnd";
+import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import { useDispatch } from "react-redux";
 import { sort } from "../features/TrelloBoard/trelloBoardSlice";
 
@@ -9,7 +9,7 @@ const Interface = ({ trelloLists }) => {
 
   const onDragEnd = (result) => {
     //todo reordering logic
-    const { destination, source, draggableId } = result;
+    const { destination, source, draggableId, type } = result;
 
     if (!destination) {
       return;
@@ -22,25 +22,38 @@ const Interface = ({ trelloLists }) => {
         droppableIndexStart: source.index,
         droppableIndexEnd: destination.index,
         draggableId: draggableId,
+        type: type,
       })
     );
   };
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <div className="listContainer">
-        {trelloLists.map((listItem) => {
+      <Droppable droppableId="all-lists" direction="horizontal" type="list">
+        {(provided) => {
           return (
-            <TrelloList
-              title={listItem.title}
-              listId={listItem.listId}
-              cards={listItem.cards}
-              key={listItem.listId}
-            />
+            <div
+              className="listContainer"
+              {...provided.droppableProps}
+              ref={provided.innerRef}
+            >
+              {trelloLists.map((listItem, index) => {
+                return (
+                  <TrelloList
+                    title={listItem.title}
+                    listId={listItem.listId}
+                    cards={listItem.cards}
+                    key={listItem.listId}
+                    index={index}
+                  />
+                );
+              })}
+              <ListButton />
+              {provided.placeholder}
+            </div>
           );
-        })}
-        <ListButton />
-      </div>
+        }}
+      </Droppable>
     </DragDropContext>
   );
 };
