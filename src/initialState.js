@@ -3,7 +3,7 @@ export const initialState = {
   openFormCard: [false, false],
   board: [
     {
-      title: "To Do",
+      listTitle: "To Do",
       listId: 0,
       cards: [
         {
@@ -17,7 +17,7 @@ export const initialState = {
       ],
     },
     {
-      title: "To Do",
+      listTitle: "To Do",
       listId: 1,
       cards: [
         {

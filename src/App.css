@@ -2,6 +2,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-size: 14px;
 }
 
 .listContainer {
@@ -15,17 +16,31 @@
   width: 200px;
   min-width: 200px;
   overflow: initial;
+  border-radius: 10px;
+  height: inherit;
 }
 
 .card {
   background-color: #fff;
   margin: 10px 0;
-  border-radius: 3px;
-  padding: 3px;
+  border-radius: 7px;
+  padding: 5px;
+  height: 30px;
+  box-shadow: 1px 1px 1px #555;
 }
 
 .button {
   max-height: 20px;
+  border-radius: 7px;
+  border: 0;
+  text-align: left;
+  padding: 5px 0 20px 5px;
+  width: 175px;
+  box-sizing: content-box;
+}
+
+.button:hover {
+  cursor: pointer;
 }
 
 .listButton {
@@ -34,8 +49,28 @@
 
 .textArea {
   resize: none;
-  width: 100%;
+  width: 97.5%;
   overflow: hidden;
   outline: none;
   border: none;
+  border-radius: 7px;
+  margin-bottom: 7px;
+  box-shadow: 1px 1px 2px #555;
+}
+
+.listTextArea {
+  width: 175px;
+}
+
+.listTitle {
+  margin-bottom: 10px;
+}
+
+.listContainer {
+  width: 200px;
+}
+
+.saveButton {
+  color: white;
+  background-color: rgb(66, 141, 70);
 }

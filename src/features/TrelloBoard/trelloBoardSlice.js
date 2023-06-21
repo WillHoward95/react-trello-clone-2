@@ -19,7 +19,7 @@ export const trelloBoardSlice = createSlice({
       if (action.payload.text) {
         console.log(action.payload);
         const list = state.board.find((element) => {
-          return action.payload.listId == element.listId;
+          return Number(action.payload.listId) === element.listId;
         });
 
         list.cards.push({
@@ -38,7 +38,7 @@ export const trelloBoardSlice = createSlice({
     setNewListText: (state, action) => {
       if (action.payload) {
         state.board.push({
-          title: action.payload,
+          listTitle: action.payload,
           cards: [],
           listId: counter,
         });
@@ -54,7 +54,6 @@ export const trelloBoardSlice = createSlice({
         droppableIdEnd,
         droppableIndexEnd,
         droppableIndexStart,
-        draggableId,
         type,
       } = action.payload;
 
@@ -67,7 +66,7 @@ export const trelloBoardSlice = createSlice({
       // moving cards between the same list
       if (droppableIdStart === droppableIdEnd && type !== "list") {
         const list = state.board.find((element) => {
-          return droppableIdStart == element.listId;
+          return Number(droppableIdStart) === element.listId;
         });
 
         const card = list.cards.splice(droppableIndexStart, 1);
@@ -77,12 +76,12 @@ export const trelloBoardSlice = createSlice({
       //moving cards between different list
       if (droppableIdStart !== droppableIdEnd && type !== "list") {
         const listStart = state.board.find(
-          (list) => droppableIdStart == list.listId
+          (list) => Number(droppableIdStart) === list.listId
         );
         const card = listStart.cards.splice(droppableIndexStart, 1);
 
         const listEnd = state.board.find(
-          (list) => droppableIdEnd == list.listId
+          (list) => Number(droppableIdEnd) == list.listId
         );
 
         listEnd.cards.splice(droppableIndexEnd, 0, ...card);

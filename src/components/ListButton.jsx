@@ -15,10 +15,10 @@ const ListButton = () => {
 
   if (formCard) {
     return (
-      <div className="button listButton">
+      <div>
         <Textarea
-          className="textArea"
-          placeholder="Enter a title for this card..."
+          className="button listButton textArea listTextArea"
+          placeholder="Enter a title..."
           autoFocus
           onBlur={() => {
             dispatch(setFormList());
@@ -28,6 +28,7 @@ const ListButton = () => {
           }}
         />
         <button
+          className="button listButton saveButton"
           onMouseDown={() => {
             dispatch(setNewListText(listTitleInput));
           }}

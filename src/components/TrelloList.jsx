@@ -2,7 +2,7 @@ import TrelloCard from "./TrelloCard";
 import CardButton from "./CardButton";
 import { Droppable, Draggable } from "react-beautiful-dnd";
 
-const TrelloList = ({ title, listId, cards, openCardForm, index }) => {
+const TrelloList = ({ listTitle, listId, cards, openCardForm, index }) => {
   return (
     <Draggable draggableId={String(listId)} index={index}>
       {(provided) => {
@@ -20,7 +20,7 @@ const TrelloList = ({ title, listId, cards, openCardForm, index }) => {
                     ref={provided.innerRef}
                     className="list"
                   >
-                    <h4>{title}</h4>
+                    <h4 className="listTitle">{listTitle}</h4>
                     {cards.map((cardItem, index) => {
                       return (
                         <TrelloCard
