@@ -87,6 +87,12 @@ export const trelloBoardSlice = createSlice({
         listEnd.cards.splice(droppableIndexEnd, 0, ...card);
       }
     },
+    setBoardTitleBoolean: (state) => {
+      state.boardTitleBoolean = !state.boardTitleBoolean;
+    },
+    setBoardTitle: (state, action) => {
+      state.boardTitle = action.payload;
+    },
   },
 });
 
@@ -98,6 +104,8 @@ export const {
   setNewListText,
   setListTitleInput,
   sort,
+  setBoardTitleBoolean,
+  setBoardTitle,
 } = trelloBoardSlice.actions;
 
 export const selectLists = (state) => state.trelloBoard.board;
@@ -105,5 +113,8 @@ export const selectFormCard = (state) => state.trelloBoard.openFormCard;
 export const selectFormList = (state) => state.trelloBoard.openFormList;
 export const selectListTitleInput = (state) => state.trelloBoard.listTitleInput;
 export const selectNewCardText = (state) => state.trelloBoard.newCardText;
+export const selectBoardTitleBoolean = (state) =>
+  state.trelloBoard.boardTitleBoolean;
+export const selectBoardTitle = (state) => state.trelloBoard.boardTitle;
 
 export default trelloBoardSlice.reducer;

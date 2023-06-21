@@ -1,4 +1,6 @@
 export const initialState = {
+  boardTitle: "React Trello Clone",
+  boardTitleBoolean: false,
   openFormList: false,
   openFormCard: [false, false],
   board: [

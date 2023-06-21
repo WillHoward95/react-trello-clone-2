@@ -1,10 +1,11 @@
-import TeamMembers from "./NavBar Components/TeamMembers";
-import LoginSettings from "./NavBar Components/LoginSettings";
+import TeamMembers from "./NavBar_Components/TeamMembers";
+import LoginSettings from "./NavBar_Components/LoginSettings";
+import BoardTitle from "./NavBar_Components/BoardTitle";
 
 const NavBar = () => {
   return (
     <>
-      <h1>Trello Board Clone</h1>
+      <BoardTitle />
       <TeamMembers />
       <LoginSettings />
     </>

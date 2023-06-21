@@ -17,7 +17,6 @@
   min-width: 200px;
   overflow: initial;
   border-radius: 10px;
-  height: inherit;
 }
 
 .card {
@@ -73,4 +72,28 @@
 .saveButton {
   color: white;
   background-color: rgb(66, 141, 70);
+}
+
+.boardTitleContainer {
+  display: flex;
+  margin: 10px 0px 0px 10px;
+  align-items: center;
+}
+
+.boardTitle {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.boardTitleInput {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 0px 0px 10px;
+  resize: none;
+  overflow: hidden;
+  outline: none;
+  border: none;
+  border-radius: 7px;
+  height: 23px;
+  width: 150px;
 }
