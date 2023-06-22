@@ -93,19 +93,24 @@ export const trelloBoardSlice = createSlice({
       state.boardTitle = action.payload;
     },
     editCardText: (state, action) => {
-      if (action.payload.text || action.payload.comment) {
-        const list = state.board.find((element) => {
-          return Number(action.payload.listId) === element.listId;
-        });
+      const list = state.board.find((element) => {
+        return Number(action.payload.listId) === element.listId;
+      });
 
-        const indexOf = list.cards.findIndex((item) => {
-          return item.cardId === action.payload.cardId;
-        });
+      const indexOf = list.cards.findIndex((item) => {
+        return item.cardId === action.payload.cardId;
+      });
 
+      if (action.payload.text) {
         list.cards[indexOf].text = action.payload.text;
-
-        list.cards[(indexOf.comment = action.payload.comment)];
       }
+
+      if (action.payload.comment) {
+        list.cards[indexOf].comment = action.payload.comment;
+      }
+    },
+    setCommentText: (state, action) => {
+      state.comment = action.payload;
     },
   },
 });
@@ -121,6 +126,7 @@ export const {
   setBoardTitleBoolean,
   setBoardTitle,
   editCardText,
+  setCommentText,
 } = trelloBoardSlice.actions;
 
 export const selectLists = (state) => state.trelloBoard.board;
@@ -131,5 +137,6 @@ export const selectNewCardText = (state) => state.trelloBoard.newCardText;
 export const selectBoardTitleBoolean = (state) =>
   state.trelloBoard.boardTitleBoolean;
 export const selectBoardTitle = (state) => state.trelloBoard.boardTitle;
+export const selectCommentText = (state) => state.trelloBoard.comment;
 
 export default trelloBoardSlice.reducer;

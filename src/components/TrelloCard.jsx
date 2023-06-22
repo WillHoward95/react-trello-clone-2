@@ -5,9 +5,10 @@ import { useState } from "react";
 import Textarea from "react-textarea-autosize";
 import {
   selectNewCardText,
-  setNewCardText,
   setNewCardInput,
   editCardText,
+  selectCommentText,
+  setCommentText,
 } from "../features/TrelloBoard/trelloBoardSlice";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -23,16 +24,24 @@ const style = {
   p: 4,
 };
 
-const TrelloCard = ({ text, cardId, index, listId }) => {
+const TrelloCard = ({ text, cardId, index, listId, comment }) => {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(true);
   };
   const newText = useSelector(selectNewCardText);
+  const commentText = useSelector(selectCommentText);
   const handleClose = () => {
     setOpen(false);
-    dispatch(editCardText({ text: newText, listId: listId, cardId: cardId }));
+    dispatch(
+      editCardText({
+        text: newText,
+        listId: listId,
+        cardId: cardId,
+        comment: commentText,
+      })
+    );
   };
 
   return (
@@ -75,7 +84,14 @@ const TrelloCard = ({ text, cardId, index, listId }) => {
               {/* {text} */}
             </Textarea>
             <h2>Add Comments:</h2>
-            <Textarea id="modal-modal-description" sx={{ mt: 2 }}></Textarea>
+            <Textarea
+              id="modal-modal-description"
+              sx={{ mt: 2 }}
+              onInput={(e) => {
+                dispatch(setCommentText(e.target.value));
+              }}
+              defaultValue={comment}
+            ></Textarea>
           </Box>
         </Modal>
       </div>
