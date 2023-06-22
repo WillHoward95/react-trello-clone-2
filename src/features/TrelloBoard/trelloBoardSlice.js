@@ -81,7 +81,7 @@ export const trelloBoardSlice = createSlice({
         const card = listStart.cards.splice(droppableIndexStart, 1);
 
         const listEnd = state.board.find(
-          (list) => Number(droppableIdEnd) == list.listId
+          (list) => Number(droppableIdEnd) === list.listId
         );
 
         listEnd.cards.splice(droppableIndexEnd, 0, ...card);

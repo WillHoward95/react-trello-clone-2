@@ -14,8 +14,9 @@ const BoardTitle = () => {
 
   if (boardTitleBoolean) {
     return (
-      <div className="boardTitle">
-        <textarea
+      <div className="boardTitleContainer">
+        <p
+          contentEditable="true"
           className="boardTitleInput"
           autoFocus
           onInput={(e) => {
@@ -26,7 +27,7 @@ const BoardTitle = () => {
           }}
         >
           {boardTitle}
-        </textarea>
+        </p>
         <EditIcon
           onClick={() => {
             dispatch(setBoardTitleBoolean());
@@ -38,7 +39,14 @@ const BoardTitle = () => {
 
   return (
     <div className="boardTitleContainer">
-      <h1 className="boardTitle">{boardTitle}</h1>
+      <p
+        className="boardTitle"
+        onClick={() => {
+          dispatch(setBoardTitleBoolean());
+        }}
+      >
+        {boardTitle}
+      </p>
       <EditIcon
         onClick={() => {
           dispatch(setBoardTitleBoolean());
