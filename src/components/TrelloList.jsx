@@ -28,6 +28,7 @@ const TrelloList = ({ listTitle, listId, cards, openCardForm, index }) => {
                           text={cardItem.text}
                           key={cardItem.cardId}
                           index={index}
+                          listId={listId}
                         />
                       );
                     })}

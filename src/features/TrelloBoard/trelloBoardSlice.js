@@ -17,7 +17,6 @@ export const trelloBoardSlice = createSlice({
     },
     setNewCardText: (state, action) => {
       if (action.payload.text) {
-        console.log(action.payload);
         const list = state.board.find((element) => {
           return Number(action.payload.listId) === element.listId;
         });
@@ -93,6 +92,21 @@ export const trelloBoardSlice = createSlice({
     setBoardTitle: (state, action) => {
       state.boardTitle = action.payload;
     },
+    editCardText: (state, action) => {
+      if (action.payload.text || action.payload.comment) {
+        const list = state.board.find((element) => {
+          return Number(action.payload.listId) === element.listId;
+        });
+
+        const indexOf = list.cards.findIndex((item) => {
+          return item.cardId === action.payload.cardId;
+        });
+
+        list.cards[indexOf].text = action.payload.text;
+
+        list.cards[(indexOf.comment = action.payload.comment)];
+      }
+    },
   },
 });
 
@@ -106,6 +120,7 @@ export const {
   sort,
   setBoardTitleBoolean,
   setBoardTitle,
+  editCardText,
 } = trelloBoardSlice.actions;
 
 export const selectLists = (state) => state.trelloBoard.board;

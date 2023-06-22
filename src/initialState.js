@@ -9,34 +9,44 @@ export const initialState = {
       listId: 0,
       cards: [
         {
-          cardId: 2,
+          cardId: 3,
           text: "Shopping",
         },
         {
-          cardId: 3,
+          cardId: 4,
           text: "Laundry",
         },
       ],
     },
     {
-      listTitle: "To Do",
+      listTitle: "In Progress",
       listId: 1,
       cards: [
         {
-          cardId: 4,
+          cardId: 5,
           text: "Shopping",
         },
         {
-          cardId: 5,
-          text: "Laundry",
-        },
-        {
           cardId: 6,
-          text: "Laundry",
+          text: "Wash kit",
         },
         {
           cardId: 7,
-          text: "Laundry",
+          text: "Find present for father's day",
+        },
+      ],
+    },
+    {
+      listTitle: "Completed",
+      listId: 2,
+      cards: [
+        {
+          cardId: 8,
+          text: "Cook lunch",
+        },
+        {
+          cardId: 9,
+          text: "Prep dinners for the week",
         },
       ],
     },
