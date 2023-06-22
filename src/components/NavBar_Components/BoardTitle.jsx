@@ -17,7 +17,7 @@ const BoardTitle = () => {
       <div className="boardTitleContainer">
         <p
           contentEditable="true"
-          className="boardTitleInput"
+          className="boardTitleInput boardTitle"
           autoFocus
           onInput={(e) => {
             dispatch(setBoardTitle(e.target.value));

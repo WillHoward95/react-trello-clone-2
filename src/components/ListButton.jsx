@@ -15,9 +15,9 @@ const ListButton = () => {
 
   if (formCard) {
     return (
-      <div>
+      <div className="textAreaContainer">
         <Textarea
-          className="button listButton textArea listTextArea"
+          className="button textArea listTextArea"
           placeholder="Enter a title..."
           autoFocus
           onBlur={() => {

@@ -15,7 +15,7 @@ const CardButton = ({ listId }) => {
 
   if (formCard[listId]) {
     return (
-      <div>
+      <div className="textAreaContainer">
         <Textarea
           className="textArea button cardButton"
           placeholder="Enter text..."

@@ -51,7 +51,7 @@ const Interface = ({ trelloLists }) => {
                     />
                   );
                 })}
-                <ListButton />
+                <ListButton className="addList" />
                 {provided.placeholder}
               </div>
             );

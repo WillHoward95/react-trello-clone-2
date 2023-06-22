@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { initialState } from "../../initialState";
 
-let counter = 8;
+let counter = 10;
 // let cardIdCounter = 100;
 
 export const trelloBoardSlice = createSlice({
