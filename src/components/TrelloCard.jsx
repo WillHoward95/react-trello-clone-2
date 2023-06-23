@@ -18,10 +18,11 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 400,
-  bgcolor: "background.paper",
+  bgcolor: "#0068a5",
   border: "2px solid #000",
   boxShadow: 24,
   p: 4,
+  height: "400px",
 };
 
 const TrelloCard = ({ text, cardId, index, listId, comment }) => {
@@ -72,6 +73,7 @@ const TrelloCard = ({ text, cardId, index, listId, comment }) => {
           <Box sx={style}>
             <h2>Enter text:</h2>
             <Textarea
+              className="modalTextArea"
               id="modal-modal-title"
               variant="h6"
               component="h2"
@@ -85,6 +87,7 @@ const TrelloCard = ({ text, cardId, index, listId, comment }) => {
             </Textarea>
             <h2>Add Comments:</h2>
             <Textarea
+              className="modalTextArea"
               id="modal-modal-description"
               sx={{ mt: 2 }}
               onInput={(e) => {

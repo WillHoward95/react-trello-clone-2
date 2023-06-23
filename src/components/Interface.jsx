@@ -9,7 +9,6 @@ const Interface = ({ trelloLists }) => {
   const dispatch = useDispatch();
 
   const onDragEnd = (result) => {
-    //todo reordering logic
     const { destination, source, draggableId, type } = result;
 
     if (!destination) {

@@ -78,6 +78,13 @@ body {
   min-height: 50px;
 }
 
+.modalTextArea {
+  resize: none;
+  height: 400px;
+  width: 100%;
+  color: black;
+}
+
 .listTextArea {
   width: 175px;
   margin: 10px 0px 0px 10px;
@@ -90,10 +97,6 @@ body {
 
 .listTitle {
   margin-bottom: 10px;
-}
-
-.listContainer {
-  width: 200px;
 }
 
 .saveButton {
