@@ -6,11 +6,18 @@ import {
   setBoardTitle,
   selectBoardTitle,
 } from "../../features/TrelloBoard/trelloBoardSlice";
+import { useRef, useEffect } from "react";
 
 const BoardTitle = () => {
   const dispatch = useDispatch();
   const boardTitleBoolean = useSelector(selectBoardTitleBoolean);
   const boardTitle = useSelector(selectBoardTitle);
+
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, [boardTitleBoolean]);
 
   if (boardTitleBoolean) {
     return (
@@ -19,6 +26,7 @@ const BoardTitle = () => {
           contentEditable="true"
           className="boardTitleInput boardTitle"
           autoFocus
+          ref={inputRef}
           onInput={(e) => {
             dispatch(setBoardTitle(e.target.value));
           }}
@@ -44,6 +52,7 @@ const BoardTitle = () => {
         onClick={() => {
           dispatch(setBoardTitleBoolean());
         }}
+        ref={inputRef}
       >
         {boardTitle}
       </p>
