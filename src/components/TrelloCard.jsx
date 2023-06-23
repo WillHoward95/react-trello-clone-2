@@ -29,6 +29,7 @@ const TrelloCard = ({ text, cardId, index, listId, comment }) => {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
+    dispatch(setNewCardInput(""));
     setOpen(true);
   };
   const newText = useSelector(selectNewCardText);
