@@ -78,13 +78,6 @@ body {
   min-height: 50px;
 }
 
-.modalTextArea {
-  resize: none;
-  height: 400px;
-  width: 100%;
-  color: black;
-}
-
 .listTextArea {
   width: 175px;
   margin: 10px 0px 0px 10px;
@@ -101,7 +94,7 @@ body {
 
 .saveButton {
   color: white;
-  background-color: #579dff;
+  background-color: #1594dd;
 }
 
 .boardTitleContainer {
@@ -130,4 +123,55 @@ body {
   outline: none;
   border: 1px solid black;
   padding: 5px;
+}
+
+.cardModal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background-color: rgb(16, 18, 4);
+  border: 2px solid #000;
+  box-shadow: 24px;
+  /* p: 4, */
+  height: 400px;
+}
+
+.cardModalInterior {
+  width: 85%;
+  margin: auto;
+  height: 80%;
+  position: absolute;
+  top: 10%;
+  left: 7.5%;
+}
+
+.teamMembers {
+  width: 100%;
+  background-color: #007cc4;
+}
+
+.modalTextArea {
+  resize: none;
+  height: 25%;
+  width: 100%;
+  color: white;
+  overflow: hidden;
+  background-color: #007cc4;
+}
+
+.editCardText,
+.editCardComment,
+.editTeamMembers {
+  margin: 10px 0;
+}
+
+.modalSaveButton {
+  margin: 10px 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  padding: 10px 0px;
 }

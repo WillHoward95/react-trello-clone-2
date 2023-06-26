@@ -12,18 +12,7 @@ import {
 } from "../features/TrelloBoard/trelloBoardSlice";
 import { useDispatch, useSelector } from "react-redux";
 
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "#0068a5",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-  height: "400px",
-};
+const style = {};
 
 const TrelloCard = ({ text, cardId, index, listId, comment }) => {
   const dispatch = useDispatch();
@@ -72,31 +61,49 @@ const TrelloCard = ({ text, cardId, index, listId, comment }) => {
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
-          <Box sx={style}>
-            <h2>Enter text:</h2>
-            <Textarea
-              className="modalTextArea"
-              id="modal-modal-title"
-              variant="h6"
-              component="h2"
-              autoFocus
-              defaultValue={text}
-              onInput={(e) => {
-                dispatch(setNewCardInput(e.target.value));
-              }}
-            >
-              {/* {text} */}
-            </Textarea>
-            <h2>Add Comments:</h2>
-            <Textarea
-              className="modalTextArea"
-              id="modal-modal-description"
-              sx={{ mt: 2 }}
-              onInput={(e) => {
-                dispatch(setCommentText(e.target.value));
-              }}
-              defaultValue={comment}
-            ></Textarea>
+          <Box className="cardModal">
+            <div className="cardModalInterior">
+              <div className="editCardText">
+                <h2>Enter text:</h2>
+                <textarea
+                  className="modalTextArea"
+                  id="modal-modal-title"
+                  variant="h6"
+                  component="h2"
+                  autoFocus
+                  defaultValue={text}
+                  onInput={(e) => {
+                    dispatch(setNewCardInput(e.target.value));
+                  }}
+                ></textarea>
+              </div>
+              <div className="editCardComment">
+                <h2>Add Comments:</h2>
+                <textarea
+                  className="modalTextArea"
+                  id="modal-modal-description"
+                  sx={{ mt: 2 }}
+                  onInput={(e) => {
+                    dispatch(setCommentText(e.target.value));
+                  }}
+                  defaultValue={comment}
+                ></textarea>
+              </div>
+              <div className="editTeamMembers">
+                <h2>Assign Team Members:</h2>
+                <select className="teamMembers">
+                  <option className="teamMembersOption">User1</option>
+                  <option className="teamMembersOption">User2</option>
+                  <option className="teamMembersOption">User3</option>
+                </select>
+              </div>
+              <button
+                className="button cardButton saveButton modalSaveButton"
+                onClick={handleClose}
+              >
+                Save Card
+              </button>
+            </div>
           </Box>
         </Modal>
       </div>
