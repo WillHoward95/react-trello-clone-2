@@ -17,7 +17,7 @@ const TeamMembers = () => {
   return (
     <>
       <button onClick={handleOpen} className="button teamMembersButton">
-        Add Team Members
+        Login
       </button>
       <Modal
         open={open}
@@ -28,18 +28,17 @@ const TeamMembers = () => {
         <Box sx={style} className="cardModal">
           <div className="cardModalInterior">
             <div className="editTeamMembers">
-              <h2>Add Team Members to board:</h2>
-              <select className="teamMembers">
-                <option className="teamMembersOption">User1</option>
-                <option className="teamMembersOption">User2</option>
-                <option className="teamMembersOption">User3</option>
-              </select>
+              <h2>Login:</h2>
+              <form>
+                <input type="email" />
+                <input type="password" />
+              </form>
             </div>
             <button
               className="button cardButton saveButton modalSaveButton"
               onClick={handleClose}
             >
-              Save Card
+              Save
             </button>
           </div>
         </Box>

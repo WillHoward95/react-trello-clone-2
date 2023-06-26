@@ -1,14 +1,18 @@
 import TeamMembers from "./NavBar_Components/TeamMembers";
-import LoginSettings from "./NavBar_Components/LoginSettings";
+import Login from "./NavBar_Components/Login";
 import BoardTitle from "./NavBar_Components/BoardTitle";
+import Settings from "./NavBar_Components/Settings";
 
 const NavBar = () => {
   return (
-    <>
+    <div className="navbar">
       <BoardTitle />
-      <TeamMembers />
-      <LoginSettings />
-    </>
+      <div>
+        <TeamMembers />
+        <Login />
+        <Settings />
+      </div>
+    </div>
   );
 };
 

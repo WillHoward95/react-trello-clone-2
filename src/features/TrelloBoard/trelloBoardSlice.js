@@ -112,6 +112,12 @@ export const trelloBoardSlice = createSlice({
     setCommentText: (state, action) => {
       state.comment = action.payload;
     },
+    setBgColor: (state, action) => {
+      state.bgColor = action.payload;
+    },
+    setFontSize: (state, action) => {
+      state.fontSize = action.payload;
+    },
   },
 });
 
@@ -127,6 +133,8 @@ export const {
   setBoardTitle,
   editCardText,
   setCommentText,
+  setBgColor,
+  setFontSize,
 } = trelloBoardSlice.actions;
 
 export const selectLists = (state) => state.trelloBoard.board;
@@ -138,5 +146,7 @@ export const selectBoardTitleBoolean = (state) =>
   state.trelloBoard.boardTitleBoolean;
 export const selectBoardTitle = (state) => state.trelloBoard.boardTitle;
 export const selectCommentText = (state) => state.trelloBoard.comment;
+export const selectBgColor = (state) => state.trelloBoard.bgColor;
+export const selectFontSize = (state) => state.trelloBoard.fontSize;
 
 export default trelloBoardSlice.reducer;

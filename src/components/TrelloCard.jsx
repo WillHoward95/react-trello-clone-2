@@ -2,7 +2,6 @@ import { Draggable } from "react-beautiful-dnd";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { useState } from "react";
-import Textarea from "react-textarea-autosize";
 import {
   selectNewCardText,
   setNewCardInput,
@@ -11,8 +10,6 @@ import {
   setCommentText,
 } from "../features/TrelloBoard/trelloBoardSlice";
 import { useDispatch, useSelector } from "react-redux";
-
-const style = {};
 
 const TrelloCard = ({ text, cardId, index, listId, comment }) => {
   const dispatch = useDispatch();

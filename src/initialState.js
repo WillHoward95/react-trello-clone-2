@@ -3,6 +3,8 @@ export const initialState = {
   boardTitleBoolean: false,
   openFormList: false,
   openFormCard: [false, false],
+  bgColor: "005585",
+  fontSize: 14,
   board: [
     {
       listTitle: "To Do",

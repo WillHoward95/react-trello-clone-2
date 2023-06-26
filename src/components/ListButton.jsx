@@ -15,7 +15,7 @@ const ListButton = () => {
 
   if (formCard) {
     return (
-      <div className="textAreaContainer">
+      <div className="textAreaContainer listTextAreaContainer">
         <Textarea
           className="button textArea listTextArea"
           placeholder="Enter a title..."
