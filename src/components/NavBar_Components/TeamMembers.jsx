@@ -39,7 +39,7 @@ const TeamMembers = () => {
               className="button cardButton saveButton modalSaveButton"
               onClick={handleClose}
             >
-              Save Card
+              Add members
             </button>
           </div>
         </Box>

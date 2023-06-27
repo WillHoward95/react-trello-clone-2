@@ -144,16 +144,21 @@
 
 .teamMembers {
   width: 100%;
-  background-color: #007cc4;
+  background-color: #ffffff;
+  color: black;
+}
+
+.teamMembersOption {
+  color: black;
 }
 
 .modalTextArea {
   resize: none;
   height: 25%;
   width: 100%;
-  color: white;
+  color: black;
   overflow: hidden;
-  background-color: #007cc4;
+  background-color: #ffffff;
   outline: none;
   border: none;
 }
