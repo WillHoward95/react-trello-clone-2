@@ -7,7 +7,7 @@ const NavBar = () => {
   return (
     <div className="navbar">
       <BoardTitle />
-      <div>
+      <div className="navbarLinks">
         <TeamMembers />
         <Login />
         <Settings />
