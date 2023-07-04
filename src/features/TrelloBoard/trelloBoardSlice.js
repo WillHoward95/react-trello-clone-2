@@ -97,7 +97,7 @@ export const trelloBoardSlice = createSlice({
       state.boardTitleBoolean = !state.boardTitleBoolean;
     },
     setBoardTitle: (state, action) => {
-      state.boardTitle = action.payload;
+      state.boardTitle[state.currentBoard] = action.payload;
     },
     editCardText: (state, action) => {
       const list = state.boardArray[state.currentBoard].find((element) => {
@@ -156,7 +156,8 @@ export const selectListTitleInput = (state) => state.trelloBoard.listTitleInput;
 export const selectNewCardText = (state) => state.trelloBoard.newCardText;
 export const selectBoardTitleBoolean = (state) =>
   state.trelloBoard.boardTitleBoolean;
-export const selectBoardTitle = (state) => state.trelloBoard.boardTitle;
+export const selectBoardTitle = (state) =>
+  state.trelloBoard.boardTitle[state.trelloBoard.currentBoard];
 export const selectCommentText = (state) => state.trelloBoard.comment;
 export const selectBgColor = (state) => state.trelloBoard.bgColor;
 export const selectFontSize = (state) => state.trelloBoard.fontSize;
