@@ -1,5 +1,11 @@
 export const initialState = {
-  boardTitle: ["React Trello Clone", "", "", "", ""],
+  boardTitle: [
+    "React Trello Clone",
+    "Board 2",
+    "Board 3",
+    "Board 4",
+    "Board 5",
+  ],
   boardTitleBoolean: false,
   openFormList: false,
   openFormCard: [false, false],

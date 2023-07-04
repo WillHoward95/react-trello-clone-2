@@ -158,6 +158,7 @@ export const selectBoardTitleBoolean = (state) =>
   state.trelloBoard.boardTitleBoolean;
 export const selectBoardTitle = (state) =>
   state.trelloBoard.boardTitle[state.trelloBoard.currentBoard];
+export const selectBoardTitleArray = (state) => state.trelloBoard.boardTitle;
 export const selectCommentText = (state) => state.trelloBoard.comment;
 export const selectBgColor = (state) => state.trelloBoard.bgColor;
 export const selectFontSize = (state) => state.trelloBoard.fontSize;

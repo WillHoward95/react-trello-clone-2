@@ -111,6 +111,8 @@
   font-weight: bold;
   background-color: inherit;
   height: 40px;
+  line-height: 30px;
+  text-align: center;
 }
 
 .boardTitleInput {

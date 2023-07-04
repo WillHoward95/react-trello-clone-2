@@ -1,13 +1,17 @@
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { useState } from "react";
-import { setCurrentBoard } from "../../features/TrelloBoard/trelloBoardSlice";
-import { useDispatch } from "react-redux";
+import {
+  setCurrentBoard,
+  selectBoardTitleArray,
+} from "../../features/TrelloBoard/trelloBoardSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const style = {};
 
 const SwitchBoards = () => {
   const dispatch = useDispatch();
+  const boardTitleArray = useSelector(selectBoardTitleArray);
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
@@ -38,7 +42,7 @@ const SwitchBoards = () => {
                   dispatch(setCurrentBoard(0));
                 }}
               >
-                Board 1
+                {boardTitleArray[0]}
               </button>
               <button
                 className="switchBoardButton"
@@ -46,7 +50,7 @@ const SwitchBoards = () => {
                   dispatch(setCurrentBoard(1));
                 }}
               >
-                Board 2
+                {boardTitleArray[1]}
               </button>
               <button
                 className="switchBoardButton"
@@ -54,7 +58,7 @@ const SwitchBoards = () => {
                   dispatch(setCurrentBoard(2));
                 }}
               >
-                Board 3
+                {boardTitleArray[2]}
               </button>
               <button
                 className="switchBoardButton"
@@ -62,7 +66,7 @@ const SwitchBoards = () => {
                   dispatch(setCurrentBoard(3));
                 }}
               >
-                Board 4
+                {boardTitleArray[3]}
               </button>
               <button
                 className="switchBoardButton"
@@ -70,7 +74,7 @@ const SwitchBoards = () => {
                   dispatch(setCurrentBoard(4));
                 }}
               >
-                Board 5
+                {boardTitleArray[4]}
               </button>
             </div>
           </div>
