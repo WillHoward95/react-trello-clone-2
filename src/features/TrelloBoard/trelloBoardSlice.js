@@ -17,7 +17,7 @@ export const trelloBoardSlice = createSlice({
     },
     setNewCardText: (state, action) => {
       if (action.payload.text) {
-        const list = state.board.find((element) => {
+        const list = state.boardArray[state.currentBoard].find((element) => {
           return Number(action.payload.listId) === element.listId;
         });
 
@@ -36,7 +36,7 @@ export const trelloBoardSlice = createSlice({
     },
     setNewListText: (state, action) => {
       if (action.payload) {
-        state.board.push({
+        state.boardArray[state.currentBoard].push({
           listTitle: action.payload,
           cards: [],
           listId: counter,
@@ -58,13 +58,20 @@ export const trelloBoardSlice = createSlice({
 
       //drag and drop lists
       if (type === "list") {
-        const list = state.board.splice(droppableIndexStart, 1);
-        state.board.splice(droppableIndexEnd, 0, ...list);
+        const list = state.boardArray[state.currentBoard].splice(
+          droppableIndexStart,
+          1
+        );
+        state.boardArray[state.currentBoard].splice(
+          droppableIndexEnd,
+          0,
+          ...list
+        );
       }
 
       // moving cards between the same list
       if (droppableIdStart === droppableIdEnd && type !== "list") {
-        const list = state.board.find((element) => {
+        const list = state.boardArray[state.currentBoard].find((element) => {
           return Number(droppableIdStart) === element.listId;
         });
 
@@ -74,12 +81,12 @@ export const trelloBoardSlice = createSlice({
 
       //moving cards between different list
       if (droppableIdStart !== droppableIdEnd && type !== "list") {
-        const listStart = state.board.find(
+        const listStart = state.boardArray[state.currentBoard].find(
           (list) => Number(droppableIdStart) === list.listId
         );
         const card = listStart.cards.splice(droppableIndexStart, 1);
 
-        const listEnd = state.board.find(
+        const listEnd = state.boardArray[state.currentBoard].find(
           (list) => Number(droppableIdEnd) === list.listId
         );
 
@@ -93,7 +100,7 @@ export const trelloBoardSlice = createSlice({
       state.boardTitle = action.payload;
     },
     editCardText: (state, action) => {
-      const list = state.board.find((element) => {
+      const list = state.boardArray[state.currentBoard].find((element) => {
         return Number(action.payload.listId) === element.listId;
       });
 
@@ -118,6 +125,9 @@ export const trelloBoardSlice = createSlice({
     setFontSize: (state, action) => {
       state.fontSize = action.payload;
     },
+    setCurrentBoard: (state, action) => {
+      state.currentBoard = action.payload;
+    },
   },
 });
 
@@ -135,9 +145,11 @@ export const {
   setCommentText,
   setBgColor,
   setFontSize,
+  setCurrentBoard,
 } = trelloBoardSlice.actions;
 
-export const selectLists = (state) => state.trelloBoard.board;
+export const selectLists = (state) =>
+  state.trelloBoard.boardArray[state.trelloBoard.currentBoard];
 export const selectFormCard = (state) => state.trelloBoard.openFormCard;
 export const selectFormList = (state) => state.trelloBoard.openFormList;
 export const selectListTitleInput = (state) => state.trelloBoard.listTitleInput;

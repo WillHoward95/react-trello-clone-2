@@ -28,7 +28,7 @@ function App() {
   const steps = [
     {
       target: "body",
-      content: "Welcome!! Please spare a minute to learn about our page",
+      content: "Welcome! Please spare a minute to learn about our page",
       disableBeacon: true,
     },
     {
