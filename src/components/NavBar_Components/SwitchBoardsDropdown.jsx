@@ -24,7 +24,7 @@ const SwitchBoards = () => {
 
   return (
     <>
-      <button onClick={handleOpen} className="button navBarButton">
+      <button onClick={handleOpen} className="navBarDropdownButton">
         Switch Boards
       </button>
       <Modal

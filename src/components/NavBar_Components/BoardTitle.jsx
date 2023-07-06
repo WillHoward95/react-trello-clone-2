@@ -20,7 +20,7 @@ const BoardTitle = () => {
           className="boardTitleInput boardTitle"
           autoFocus
           onKeyDown={(e) => {
-            if (e.key === "Enter") {
+            if (e.key === "Enter" || e.key === "Escape") {
               dispatch(setBoardTitleBoolean());
             }
           }}

@@ -23,7 +23,7 @@ const TeamMembers = () => {
 
   return (
     <>
-      <button onClick={handleOpen} className="button navBarButton">
+      <button onClick={handleOpen} className="navBarDropdownButton">
         Settings
       </button>
       <Modal

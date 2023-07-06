@@ -13,7 +13,7 @@ html {
 .listContainer {
   display: flex;
   margin-top: 60px;
-  /* overflow: scroll; */
+  overflow: hidden;
 }
 
 .list {
@@ -130,7 +130,7 @@ html {
   font-weight: bold;
   font-size: 1em;
   font-family: "Roboto";
-  width: 400px;
+  min-width: 300px;
 }
 
 .cardModal {
@@ -203,16 +203,17 @@ html {
   top: 0;
   overflow: hidden;
   align-items: center;
+  flex-wrap: wrap;
 }
 
-.teamMembersButton {
+.navBarButton {
   margin: 0;
   padding: 20px;
   text-align: center;
   width: inherit;
 }
 
-.teamMembersButton:hover {
+.navBarButton:hover {
   background-color: #ffffff75;
 }
 
@@ -304,4 +305,51 @@ html {
 .switchBoardButton:hover {
   cursor: pointer;
   background-color: #2b2f31;
+}
+
+.switchBoard {
+  width: 200px;
+}
+
+.menuIconBar {
+  background-color: #fff;
+  height: 4px;
+  width: 30px;
+  border-radius: 3px;
+  margin-top: 5px;
+  position: relative;
+}
+
+.menuIcon {
+  display: none;
+  position: absolute;
+  top: 12px;
+  right: 20px;
+}
+
+.navBarDropdownButton {
+  display: none;
+}
+
+.dropdownMenu {
+  background-color: #0a0a09;
+  position: absolute;
+  right: 0;
+  top: 20px;
+  flex-direction: column;
+  width: 120px;
+}
+
+@media (max-width: 500px) {
+  .navBarButton {
+    display: none;
+  }
+
+  .menuIcon {
+    display: initial;
+  }
+
+  .navBarDropdownButton {
+    display: initial;
+  }
 }

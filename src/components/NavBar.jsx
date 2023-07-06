@@ -3,6 +3,8 @@
 import BoardTitle from "./NavBar_Components/BoardTitle";
 import Settings from "./NavBar_Components/Settings";
 import SwitchBoards from "./NavBar_Components/SwitchBoards";
+import Dropdown from "./NavBar_Components/Dropdown";
+// import MenuIcon from "./menu-icon.svg";
 
 const NavBar = () => {
   return (
@@ -13,6 +15,7 @@ const NavBar = () => {
         {/* <TeamMembers />
         <Login /> */}
         <Settings />
+        <Dropdown />
       </div>
     </div>
   );

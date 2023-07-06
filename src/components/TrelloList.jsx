@@ -30,8 +30,6 @@ const TrelloList = ({ listTitle, listId, cards, openCardForm, index }) => {
         listId: listId,
       })
     );
-
-    console.log(newText);
   };
 
   return (
@@ -84,6 +82,11 @@ const TrelloList = ({ listTitle, listId, cards, openCardForm, index }) => {
                               component="h2"
                               autoFocus
                               defaultValue={listTitle}
+                              onKeyDown={(e) => {
+                                if (e.key === "Enter") {
+                                  handleClose();
+                                }
+                              }}
                               onInput={(e) => {
                                 dispatch(setListTitleInput(e.target.value));
                               }}

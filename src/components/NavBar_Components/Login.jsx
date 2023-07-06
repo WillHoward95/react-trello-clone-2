@@ -16,7 +16,7 @@ const TeamMembers = () => {
 
   return (
     <>
-      <button onClick={handleOpen} className="button teamMembersButton">
+      <button onClick={handleOpen} className="button navBarButton">
         Login
       </button>
       <Modal

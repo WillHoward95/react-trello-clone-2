@@ -46,7 +46,6 @@ export const trelloBoardSlice = createSlice({
     },
     editListTitle: (state, action) => {
       const { listId, text } = action.payload;
-      console.log(listId, text);
 
       const list = state.boardArray[state.currentBoard].find((element) => {
         return Number(action.payload.listId) === element.listId;
