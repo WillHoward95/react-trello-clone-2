@@ -27,17 +27,21 @@ function App() {
   //onboarding steps
   const steps = [
     {
-      target: "body",
+      target: "html",
       content: "Welcome! Please spare a minute to learn about our page",
       disableBeacon: true,
     },
     {
-      target: ".listContainer",
+      target: ".list",
       content: "These are your lists, they categorise your cards",
     },
     {
       target: ".card",
       content: "These are your cards, they represent each task to complete",
+    },
+    {
+      target: ".card",
+      content: "You can click on a card to edit it's content and add comments",
     },
     {
       target: ".cardButton",
@@ -60,7 +64,7 @@ function App() {
     {
       target: ".navbarLinks",
       content:
-        "Here you can add team members to your board, login to save your progress, or alter the settings of the board.",
+        "Here you can switch to a new board or alter the settings of your board.",
     },
   ];
 
@@ -71,10 +75,12 @@ function App() {
         continuous={true}
         styles={{
           options: {
-            arrowColor: `#${bgColor}`,
-            backgroundColor: `#${bgColor}`,
-            primaryColor: "#0484ce",
+            arrowColor: "#d29034",
+            backgroundColor: "#d29034",
+            primaryColor: `#d29034`,
             textColor: "#fff",
+            width: undefined,
+            zIndex: 100,
           },
         }}
         showProgress={true}
