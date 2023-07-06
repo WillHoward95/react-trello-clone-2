@@ -40,6 +40,7 @@ const SwitchBoards = () => {
                 className="switchBoardButton"
                 onClick={() => {
                   dispatch(setCurrentBoard(0));
+                  handleClose();
                 }}
               >
                 {boardTitleArray[0]}
@@ -48,6 +49,7 @@ const SwitchBoards = () => {
                 className="switchBoardButton"
                 onClick={() => {
                   dispatch(setCurrentBoard(1));
+                  handleClose();
                 }}
               >
                 {boardTitleArray[1]}
@@ -56,6 +58,7 @@ const SwitchBoards = () => {
                 className="switchBoardButton"
                 onClick={() => {
                   dispatch(setCurrentBoard(2));
+                  handleClose();
                 }}
               >
                 {boardTitleArray[2]}
@@ -64,6 +67,7 @@ const SwitchBoards = () => {
                 className="switchBoardButton"
                 onClick={() => {
                   dispatch(setCurrentBoard(3));
+                  handleClose();
                 }}
               >
                 {boardTitleArray[3]}
@@ -72,6 +76,7 @@ const SwitchBoards = () => {
                 className="switchBoardButton"
                 onClick={() => {
                   dispatch(setCurrentBoard(4));
+                  handleClose();
                 }}
               >
                 {boardTitleArray[4]}

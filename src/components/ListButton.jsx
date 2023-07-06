@@ -42,7 +42,7 @@ const ListButton = () => {
             dispatch(setNewListText(listTitleInput));
           }}
         >
-          Save Card
+          Save List
         </button>
       </div>
     );

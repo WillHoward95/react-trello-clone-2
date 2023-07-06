@@ -44,6 +44,18 @@ export const trelloBoardSlice = createSlice({
         counter += 1;
       }
     },
+    editListTitle: (state, action) => {
+      const { listId, text } = action.payload;
+      console.log(listId, text);
+
+      const list = state.boardArray[state.currentBoard].find((element) => {
+        return Number(action.payload.listId) === element.listId;
+      });
+
+      if (text) {
+        list.listTitle = text;
+      }
+    },
     setListTitleInput: (state, action) => {
       state.listTitleInput = action.payload;
     },
@@ -146,6 +158,7 @@ export const {
   setBgColor,
   setFontSize,
   setCurrentBoard,
+  editListTitle,
 } = trelloBoardSlice.actions;
 
 export const selectLists = (state) =>

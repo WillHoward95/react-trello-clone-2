@@ -19,6 +19,11 @@ const BoardTitle = () => {
           type="text"
           className="boardTitleInput boardTitle"
           autoFocus
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              dispatch(setBoardTitleBoolean());
+            }
+          }}
           onInput={(e) => {
             dispatch(setBoardTitle(e.target.value));
           }}
