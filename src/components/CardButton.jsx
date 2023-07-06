@@ -23,7 +23,14 @@ const CardButton = ({ listId }) => {
           onBlur={() => {
             dispatch(setFormCard(listId));
           }}
-          onInput={(e) => {
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              dispatch(setNewCardText({ text: newCardText, listId: listId }));
+              dispatch(setFormCard(listId));
+            }
+            if (e.key === "Escape") {
+              dispatch(setFormCard(listId));
+            }
             dispatch(setNewCardInput(e.target.value));
           }}
         />

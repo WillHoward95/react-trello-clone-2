@@ -3,11 +3,13 @@
   padding: 0;
   margin: 0;
   color: #ffffff;
+  font-family: "Roboto", sans-serif;
 }
 
 .listContainer {
   display: flex;
   margin-top: 60px;
+  /* overflow: scroll; */
 }
 
 .list {
@@ -16,7 +18,6 @@
   padding: 10px;
   width: 200px;
   min-width: 200px;
-  overflow: initial;
   border-radius: 3px;
   color: white;
 }
@@ -163,11 +164,14 @@
   resize: none;
   height: 25%;
   width: 100%;
-  color: black;
+  color: white;
   overflow: hidden;
-  background-color: #ffffff;
+  background-color: #22272b;
   outline: none;
   border: none;
+  height: 80px;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .editCardText,

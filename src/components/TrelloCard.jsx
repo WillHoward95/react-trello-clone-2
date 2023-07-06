@@ -86,14 +86,14 @@ const TrelloCard = ({ text, cardId, index, listId, comment }) => {
                   defaultValue={comment}
                 ></textarea>
               </div>
-              <div className="editTeamMembers">
+              {/* <div className="editTeamMembers">
                 <h2>Assign Team Members:</h2>
                 <select className="teamMembers">
                   <option className="teamMembersOption">User1</option>
                   <option className="teamMembersOption">User2</option>
                   <option className="teamMembersOption">User3</option>
                 </select>
-              </div>
+              </div> */}
               <button
                 className="button cardButton saveButton modalSaveButton"
                 onClick={handleClose}

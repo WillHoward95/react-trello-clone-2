@@ -23,6 +23,15 @@ const ListButton = () => {
           onBlur={() => {
             dispatch(setFormList());
           }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              dispatch(setNewListText(listTitleInput));
+              dispatch(setFormList());
+            }
+            if (e.key === "Escape") {
+              dispatch(setFormList());
+            }
+          }}
           onInput={(e) => {
             dispatch(setListTitleInput(e.target.value));
           }}

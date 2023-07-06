@@ -32,7 +32,7 @@ function App() {
       disableBeacon: true,
     },
     {
-      target: ".list",
+      target: ".listContainer",
       content: "These are your lists, they categorise your cards",
     },
     {

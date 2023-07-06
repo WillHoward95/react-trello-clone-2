@@ -1,5 +1,5 @@
-import TeamMembers from "./NavBar_Components/TeamMembers";
-import Login from "./NavBar_Components/Login";
+// import TeamMembers from "./NavBar_Components/TeamMembers";
+// import Login from "./NavBar_Components/Login";
 import BoardTitle from "./NavBar_Components/BoardTitle";
 import Settings from "./NavBar_Components/Settings";
 import SwitchBoards from "./NavBar_Components/SwitchBoards";
@@ -10,8 +10,8 @@ const NavBar = () => {
       <BoardTitle />
       <div className="navbarLinks">
         <SwitchBoards />
-        <TeamMembers />
-        <Login />
+        {/* <TeamMembers />
+        <Login /> */}
         <Settings />
       </div>
     </div>
