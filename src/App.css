@@ -201,7 +201,7 @@ html {
   right: 0;
   left: 0;
   top: 0;
-  overflow: hidden;
+  /* overflow: hidden; */
   align-items: center;
   flex-wrap: wrap;
 }
@@ -329,15 +329,25 @@ html {
 
 .navBarDropdownButton {
   display: none;
+  font-size: 18px;
+  width: 100%;
+}
+
+.navBarDropdownButton:hover {
+  background-color: red;
+  background-color: #1d1d1b;
 }
 
 .dropdownMenu {
+  padding: 10px;
   background-color: #0a0a09;
   position: absolute;
   right: 0;
-  top: 20px;
+  top: 50px;
   flex-direction: column;
-  width: 120px;
+  width: 150px;
+  border-radius: 5px;
+  display: none;
 }
 
 @media (max-width: 500px) {
@@ -350,6 +360,10 @@ html {
   }
 
   .navBarDropdownButton {
+    display: initial;
+  }
+
+  .dropdownMenu {
     display: initial;
   }
 }
